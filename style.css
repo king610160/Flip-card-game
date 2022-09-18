@@ -1,0 +1,114 @@
+#cards {
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.cards {
+  /* 卡片在圖面的排板 */
+  /* 7%是因為100/13=7.7，所以估算1張牌佔7% */
+  flex : 7% 0 1;
+  /* flex-basis(在容器佔的大小，可%、px...), flex-grow(如果有剩餘的空間會不會吃掉，0是不吃掉), flex-shrink(如果空間不夠會不會收縮，1是會縮) */
+  height : 8vw;
+  /* 100vw是一整個視窗大小 */
+  border : 2px solid #e0e0e0;
+  /*  卡片內部的排板*/
+  display : flex;
+  flex-direction : column;
+  /* flex-direction設定的是主要軸 */
+  justify-content : space-around;
+  /* space-around表示左右的margin是一樣的 */
+  margin : 2px;
+}
+
+.cards img {
+  max-width: 30%;
+  align-self: center;
+  /* align-items, align-self的不同 */
+
+}
+
+.cards p{
+  margin: 3px;
+  font-size: 10px;
+}
+
+.cards :last-child {
+  transform: rotate(180deg);
+  /* 讓卡片轉180度 */
+}
+
+.back {
+  background: url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+  background-size: cover;
+}
+
+.paired{
+  background-color: aqua;
+}
+
+#header {
+  /* border: 2px solid #666666; */ /*border可用來debug*/
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+
+#header .title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#header .title img {
+  max-width: 3em;
+}
+
+#header .title h2 {
+  padding-left: 0.5em;
+}
+
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+
+#header .tried {
+  margin-top: 0;
+}
+
+.wrong {
+  animation-name: wrongAnimation;/*執行的動畫名稱*/
+  animation-duration: 0.2s; /*動畫跑0.2s*/
+  animation-iteration-count: 5; /*動畫跑5次*/
+}
+
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/** Game finished **/
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232, 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed>p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed>p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}
