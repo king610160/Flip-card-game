@@ -80,7 +80,7 @@ const view = {
     document.querySelector('.tried').textContent = `You've tried: ${times} times`
   },
 
-  appendWrongAnimation(...cards){
+  appendWrongAnimation(...cards){//add something
     cards.map(card => {
       card.classList.add('wrong')
       card.addEventListener('animationend', e => {
